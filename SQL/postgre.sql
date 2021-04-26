@@ -1,0 +1,16 @@
+CREATE DATABASE social_midea;
+
+CREATE USER s_m WITH PASSWORD '9jY9$s';
+
+GRANT ALL PRIVILEGES ON DATABASE social_midea TO s_m;
+
+DROP TABLE IF EXISTS tb_users;
+
+CREATE TABLE tb_users(
+  id SERIAL PRIMARY KEY,
+  ds_nome VARCHAR(255) NOT NULL,
+  ds_nick VARCHAR(50) NOT NULL UNIQUE,
+  ds_email VARCHAR(50) NOT NULL UNIQUE,
+  ds_password VARCHAR(20) NOT NULL,
+  dt_created_at TIMESTAMP DEFAULT NOW()
+)
